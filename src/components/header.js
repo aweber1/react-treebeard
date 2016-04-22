@@ -5,6 +5,7 @@ import shallowEqual from 'shallowequal';
 import deepEqual from 'deep-equal';
 import passThrough from 'react-passthrough';
 
+@passThrough({omit: ['children', 'form']})
 class NodeHeader extends React.Component {
     constructor(props){
         super(props);

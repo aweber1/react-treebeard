@@ -8,6 +8,7 @@ import defaultTheme from '../themes/default';
 import defaultAnimations from '../themes/animations';
 import passThrough from 'react-passthrough';
 
+@passThrough({omit: ['children', 'form', 'data']})
 class TreeBeard extends React.Component {
     constructor(props){
         super(props);

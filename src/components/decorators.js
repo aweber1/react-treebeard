@@ -1,11 +1,11 @@
 'use strict';
 
 import React from 'react';
-import Radium from 'radium';
+import radium from 'radium';
 import {VelocityComponent} from 'velocity-react';
 import passThrough from 'react-passthrough';
 
-const Loading = Radium((props) => {
+const Loading = radium((props) => {
     return (
         <div style={props.style}>
             loading...
@@ -17,7 +17,7 @@ Loading.propTypes = {
     style: React.PropTypes.object
 };
 
-const Toggle = Radium((props) => {
+const Toggle = radium((props) => {
     const style = props.style;
     const height = style.height;
     const width = style.width;
@@ -41,7 +41,7 @@ Toggle.propTypes = {
     style: React.PropTypes.object
 };
 
-const Header = Radium((props) => {
+const Header = radium((props) => {
     const style = props.style;
     return (
         <div style={style.base}>
@@ -57,7 +57,7 @@ Header.propTypes = {
     node: React.PropTypes.object.isRequired
 };
 
-@Radium
+@radium
 @passThrough({omit: ['children', 'form']})
 class Container extends React.Component {
     constructor(props){

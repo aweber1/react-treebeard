@@ -7,6 +7,7 @@ import passThrough from 'react-passthrough';
 
 import NodeHeader from './header';
 
+@passThrough({omit: ['children', 'form']})
 class TreeNode extends React.Component {
     constructor(props){
         super(props);
