@@ -58,7 +58,6 @@ Header.propTypes = {
 };
 
 @radium
-@passThrough({omit: ['children', 'form']})
 class Container extends React.Component {
     constructor(props){
         super(props);
@@ -107,6 +106,8 @@ Container.propTypes = {
     ]).isRequired,
     node: React.PropTypes.object.isRequired
 };
+
+passThrough({omit: ['children', 'form']})(Container);
 
 export default {
     Loading,

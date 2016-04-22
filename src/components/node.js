@@ -7,7 +7,6 @@ import passThrough from 'react-passthrough';
 
 import NodeHeader from './header';
 
-@passThrough({omit: ['children', 'form']})
 class TreeNode extends React.Component {
     constructor(props){
         super(props);
@@ -110,4 +109,6 @@ TreeNode.propTypes = {
     onToggle: React.PropTypes.func
 };
 
-export default passThrough({omit: ['children', 'form']})(TreeNode);
+passThrough({omit: ['children', 'form']})(TreeNode);
+
+export default TreeNode;
