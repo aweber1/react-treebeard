@@ -3,7 +3,9 @@
 import React from 'react';
 import shallowEqual from 'shallowequal';
 import deepEqual from 'deep-equal';
+import passThrough from 'react-passthrough';
 
+@passThrough({omit: ['children', 'form']})
 class NodeHeader extends React.Component {
     constructor(props){
         super(props);
@@ -27,6 +29,7 @@ class NodeHeader extends React.Component {
         const headerStyles = Object.assign({ container }, this.props.style);
         return (
             <decorators.Container
+                {...this.passthrough()}
                 style={headerStyles}
                 decorators={decorators}
                 terminal={terminal}

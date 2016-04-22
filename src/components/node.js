@@ -3,9 +3,11 @@
 import React from 'react';
 import rutils from 'react-utils';
 import {VelocityTransitionGroup} from 'velocity-react';
+import passThrough from 'react-passthrough';
 
 import NodeHeader from './header';
 
+@passThrough({omit: ['children', 'form']})
 class TreeNode extends React.Component {
     constructor(props){
         super(props);
@@ -56,6 +58,7 @@ class TreeNode extends React.Component {
     renderHeader(decorators, animations){
         return (
             <NodeHeader
+                {...this.passthrough()}
                 decorators={decorators}
                 animations={animations}
                 style={this.props.style}
@@ -70,6 +73,7 @@ class TreeNode extends React.Component {
             <ul style={this.props.style.subtree} ref="subtree">
                 {rutils.children.map(this.props.node.children, (child, index) =>
                     <TreeNode
+                        {...this.passthrough()}
                         {...this._eventBubbles()}
                         key={child.id || index}
                         node={child}
@@ -85,7 +89,7 @@ class TreeNode extends React.Component {
         return (
             <ul style={this.props.style.subtree}>
                 <li>
-                    <decorators.Loading style={this.props.style.loading}/>
+                    <decorators.Loading {...this.passthrough()} style={this.props.style.loading}/>
                 </li>
             </ul>
         );
