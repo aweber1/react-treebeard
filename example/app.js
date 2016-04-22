@@ -20,7 +20,7 @@ decorators.Header = (props) => {
     return (
         <div style={style.base}>
             <div style={style.title}>
-                <i className={iconClass} style={iconStyle}/>
+                <i className={iconClass} style={iconStyle} onClick={props.onExtraClick}/>
                 {props.node.name}
             </div>
         </div>
@@ -52,12 +52,14 @@ class DemoTree extends React.Component {
         super(props);
         this.state = {data};
         this.onToggle = this.onToggle.bind(this);
+        this.onExtraClick = this.onExtraClick.bind(this);
     }
     onToggle(node, toggled){
         if(this.state.cursor){this.state.cursor.active = false;}
         node.active = true;
         if(node.children){ node.toggled = toggled; }
         this.setState({ cursor: node });
+        console.log('toggle');
     }
     onFilterMouseUp(e){
         const filter = e.target.value.trim();
@@ -65,6 +67,9 @@ class DemoTree extends React.Component {
         var filtered = filters.filterTree(data, filter);
         filtered = filters.expandFilteredNodes(filtered, filter);
         this.setState({data: filtered});
+    }
+    onExtraClick(){
+        console.log('onExtraClick');
     }
     render(){
         return (
@@ -86,6 +91,7 @@ class DemoTree extends React.Component {
                         data={this.state.data}
                         onToggle={this.onToggle}
                         decorators={decorators}
+                        onExtraClick={this.onExtraClick}
                     />
                 </div>
                 <div style={styles.component}>

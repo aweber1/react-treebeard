@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "db1e6e28535fcee6f0fc"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "4c25214d770a661773bb"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -644,7 +644,7 @@
 	        _react2['default'].createElement(
 	            'div',
 	            { style: style.title },
-	            _react2['default'].createElement('i', { className: iconClass, style: iconStyle }),
+	            _react2['default'].createElement('i', { className: iconClass, style: iconStyle, onClick: props.onExtraClick }),
 	            props.node.name
 	        )
 	    );
@@ -691,6 +691,7 @@
 	        _get(Object.getPrototypeOf(DemoTree.prototype), 'constructor', this).call(this, props);
 	        this.state = { data: _data2['default'] };
 	        this.onToggle = this.onToggle.bind(this);
+	        this.onExtraClick = this.onExtraClick.bind(this);
 	    }
 
 	    _createClass(DemoTree, [{
@@ -704,6 +705,7 @@
 	                node.toggled = toggled;
 	            }
 	            this.setState({ cursor: node });
+	            console.log('toggle');
 	        }
 	    }, {
 	        key: 'onFilterMouseUp',
@@ -715,6 +717,11 @@
 	            var filtered = filters.filterTree(_data2['default'], filter);
 	            filtered = filters.expandFilteredNodes(filtered, filter);
 	            this.setState({ data: filtered });
+	        }
+	    }, {
+	        key: 'onExtraClick',
+	        value: function onExtraClick() {
+	            console.log('onExtraClick');
 	        }
 	    }, {
 	        key: 'render',
@@ -746,7 +753,8 @@
 	                    _react2['default'].createElement(_srcIndex.Treebeard, {
 	                        data: this.state.data,
 	                        onToggle: this.onToggle,
-	                        decorators: _srcIndex.decorators
+	                        decorators: _srcIndex.decorators,
+	                        onExtraClick: this.onExtraClick
 	                    })
 	                ),
 	                _react2['default'].createElement(
@@ -25072,9 +25080,9 @@
 	    _inherits(TreeBeard, _React$Component);
 
 	    function TreeBeard(props) {
-	        _classCallCheck(this, _TreeBeard);
+	        _classCallCheck(this, TreeBeard);
 
-	        _get(Object.getPrototypeOf(_TreeBeard.prototype), 'constructor', this).call(this, props);
+	        _get(Object.getPrototypeOf(TreeBeard.prototype), 'constructor', this).call(this, props);
 	    }
 
 	    _createClass(TreeBeard, [{
@@ -25105,8 +25113,6 @@
 	        }
 	    }]);
 
-	    var _TreeBeard = TreeBeard;
-	    TreeBeard = (0, _reactPassthrough2['default'])({ omit: ['children', 'form', 'data'] })(TreeBeard) || TreeBeard;
 	    return TreeBeard;
 	})(_react2['default'].Component);
 
@@ -25123,6 +25129,8 @@
 	    animations: _themesAnimations2['default'],
 	    decorators: _decorators2['default']
 	};
+
+	(0, _reactPassthrough2['default'])({ omit: ['children', 'form', 'data'] })(TreeBeard);
 
 	exports['default'] = TreeBeard;
 	module.exports = exports['default'];
@@ -25272,9 +25280,9 @@
 	    _inherits(TreeNode, _React$Component);
 
 	    function TreeNode(props) {
-	        _classCallCheck(this, _TreeNode);
+	        _classCallCheck(this, TreeNode);
 
-	        _get(Object.getPrototypeOf(_TreeNode.prototype), 'constructor', this).call(this, props);
+	        _get(Object.getPrototypeOf(TreeNode.prototype), 'constructor', this).call(this, props);
 	        this.onClick = this.onClick.bind(this);
 	    }
 
@@ -25389,8 +25397,6 @@
 	        }
 	    }]);
 
-	    var _TreeNode = TreeNode;
-	    TreeNode = (0, _reactPassthrough2['default'])({ omit: ['children', 'form'] })(TreeNode) || TreeNode;
 	    return TreeNode;
 	})(_react2['default'].Component);
 
@@ -25401,6 +25407,8 @@
 	    animations: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.object, _react2['default'].PropTypes.bool]).isRequired,
 	    onToggle: _react2['default'].PropTypes.func
 	};
+
+	(0, _reactPassthrough2['default'])({ omit: ['children', 'form'] })(TreeNode);
 
 	exports['default'] = TreeNode;
 	module.exports = exports['default'];
@@ -33376,9 +33384,9 @@
 	    _inherits(NodeHeader, _React$Component);
 
 	    function NodeHeader(props) {
-	        _classCallCheck(this, _NodeHeader);
+	        _classCallCheck(this, NodeHeader);
 
-	        _get(Object.getPrototypeOf(_NodeHeader.prototype), 'constructor', this).call(this, props);
+	        _get(Object.getPrototypeOf(NodeHeader.prototype), 'constructor', this).call(this, props);
 	    }
 
 	    _createClass(NodeHeader, [{
@@ -33420,8 +33428,6 @@
 	        }
 	    }]);
 
-	    var _NodeHeader = NodeHeader;
-	    NodeHeader = (0, _reactPassthrough2['default'])({ omit: ['children', 'form'] })(NodeHeader) || NodeHeader;
 	    return NodeHeader;
 	})(_react2['default'].Component);
 
@@ -33432,6 +33438,8 @@
 	    node: _react2['default'].PropTypes.object.isRequired,
 	    onClick: _react2['default'].PropTypes.func
 	};
+
+	(0, _reactPassthrough2['default'])({ omit: ['children', 'form'] })(NodeHeader);
 
 	exports['default'] = NodeHeader;
 	module.exports = exports['default'];
@@ -34761,7 +34769,6 @@
 	    }]);
 
 	    var _Container = Container;
-	    Container = (0, _reactPassthrough2['default'])({ omit: ['children', 'form'] })(Container) || Container;
 	    Container = (0, _radium2['default'])(Container) || Container;
 	    return Container;
 	})(_react2['default'].Component);
@@ -34774,6 +34781,8 @@
 	    animations: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.object, _react2['default'].PropTypes.bool]).isRequired,
 	    node: _react2['default'].PropTypes.object.isRequired
 	};
+
+	(0, _reactPassthrough2['default'])({ omit: ['children', 'form'] })(Container);
 
 	exports['default'] = {
 	    Loading: Loading,
