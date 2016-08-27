@@ -1,6 +1,6 @@
 {
   "name": "react-treebeard",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "React Tree View Component",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,8 @@
     "example": "webpack-dev-server --content-base ./example/ --config ./example/webpack.config.js"
   },
   "peerDependencies": {
-    "react": "^0.14",
-    "react-dom": "^0.14"
+    "react": "^0.14 || ^15.0",
+    "react-dom": "^0.14 || ^15.0"
   },
   "repository": {
     "type": "git",
@@ -73,7 +73,7 @@
   "dependencies": {
     "babel-runtime": "^5.8.29",
     "deep-equal": "^1.0.1",
-    "radium": "^0.17.1",
+    "radium": "^0.18.1",
     "react-passthrough": "^0.1.0",
     "react-utils": "alexcurtis/react-utils",
     "shallowequal": "^0.2.2",
